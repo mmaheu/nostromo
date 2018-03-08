@@ -8,10 +8,10 @@ DOCKER_REG=${DOCKER_REG:-docker-artifactory.my}
 DOCKER_USR=${DOCKER_USR:-admin}
 DOCKER_PSW=${DOCKER_PSW:-password}
 
-DOCKER_REPO=${DOCKER_REPO:-acme}
+DOCKER_REPO=${DOCKER_REPO:-nostromo}
 DOCKER_TAG=${DOCKER_TAG:-dev}
 
-HELM_REPO=${HELM_REG:-http://artifactory.my/artifactory/helm}
+HELM_REPO=${HELM_REG:-http://127.0.0.1:8879/charts}
 HELM_USR=${HELM_USR:-admin}
 HELM_PSW=${HELM_PSW:-password}
 
@@ -23,7 +23,7 @@ errorExit () {
 usage () {
     cat << END_USAGE
 
-${SCRIPT_NAME} - Script for building the ACME web application, Docker image and Helm chart
+${SCRIPT_NAME} - Script for building the Nostromo web application, Docker image and Helm chart
 
 Usage: ./${SCRIPT_NAME} <options>
 
@@ -95,7 +95,7 @@ packHelmChart() {
     [ -d ${BUILD_DIR}/helm ] && rm -rf ${BUILD_DIR}/helm
     mkdir -p ${BUILD_DIR}/helm
 
-    helm package -d ${BUILD_DIR}/helm ${SCRIPT_DIR}/helm/acme || errorExit "Packing helm chart ${SCRIPT_DIR}/helm/acme failed"
+    helm package -d ${BUILD_DIR}/helm ${SCRIPT_DIR}/helm/nostromo || errorExit "Packing helm chart ${SCRIPT_DIR}/helm/nostromo failed"
 }
 
 # Pushing the Helm chart
