@@ -112,7 +112,7 @@ pipeline {
         IMAGE_NAME = 'nostromo'
         TEST_LOCAL_PORT = 8817
         DEPLOY_PROD = false
-        PARAMETERS_FILE = "${JENKINS_HOME}/parameters.groovy"
+       // PARAMETERS_FILE = "${JENKINS_HOME}/parameters.groovy"
     }
 
     parameters {
