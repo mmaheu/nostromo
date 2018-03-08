@@ -109,7 +109,7 @@ pipeline {
 
     // Some global default variables
     environment {
-        IMAGE_NAME = 'acme'
+        IMAGE_NAME = 'nostromo'
         TEST_LOCAL_PORT = 8817
         DEPLOY_PROD = false
         PARAMETERS_FILE = "${JENKINS_HOME}/parameters.groovy"
@@ -144,10 +144,10 @@ pipeline {
         ////////// Step 1 //////////
         stage('Git clone and setup') {
             steps {
-                echo "Check out acme code"
+                echo "Check out nostromo code"
                 git branch: "master",
-                        credentialsId: 'eldada-bb',
-                        url: 'https://git.jfrog.info/scm/~eldada/acme-ci-cd.git'
+                        credentialsId: 'mmaheu',
+                        url: 'https://github.com/mmaheu/nostromo.git'
 
                 // Validate kubectl
                 sh "kubectl cluster-info"
