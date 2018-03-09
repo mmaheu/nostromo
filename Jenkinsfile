@@ -123,16 +123,16 @@ pipeline {
         // The commented out parameters are for optionally using them in the pipeline.
         // In this example, the parameters are loaded from file ${JENKINS_HOME}/parameters.groovy later in the pipeline.
         // The ${JENKINS_HOME}/parameters.groovy can be a mounted secrets file in your Jenkins container.
-/*
+
         string (name: 'DOCKER_REG',       defaultValue: 'mmaheu',                   description: 'Docker registry')
         string (name: 'DOCKER_TAG',       defaultValue: 'dev',                                     description: 'Docker tag')
-        string (name: 'DOCKER_USR',       defaultValue: 'admin',                                   description: 'Your helm repository user')
-        string (name: 'DOCKER_PSW',       defaultValue: 'password',                                description: 'Your helm repository password')
+        string (name: 'DOCKER_USR',       defaultValue: 'me@michaelmaheu.com',                                   description: 'Your helm repository user')
+        string (name: 'DOCKER_PSW',       defaultValue: 'SpadeFish5818',                                description: 'Your helm repository password')
         string (name: 'IMG_PULL_SECRET',  defaultValue: 'docker-reg-secret',                       description: 'The Kubernetes secret for the Docker registry (imagePullSecrets)')
         string (name: 'HELM_REPO',        defaultValue: 'http://127.0.0.1:8879/charts', description: 'Your helm repository')
         string (name: 'HELM_USR',         defaultValue: 'admin',                                   description: 'Your helm repository user')
         string (name: 'HELM_PSW',         defaultValue: 'password',                                description: 'Your helm repository password')
-*/
+
     }
 
     // In this example, all is built and run from the master
