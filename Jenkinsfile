@@ -31,7 +31,7 @@ def helmInstall (namespace, release) {
         sh """
             helm upgrade --install --namespace ${namespace} ${release} \
                 --set imagePullSecrets=${IMG_PULL_SECRET} \
-                --set image.repository=mmaheu/${IMAGE_NAME},image.tag=${DOCKER_TAG} helm/nostromo
+                --set image.repository=${DOCKER_REG}/${IMAGE_NAME},image.tag=${DOCKER_TAG} helm/nostromo
         """
         sh "sleep 5"
     }
@@ -112,7 +112,7 @@ pipeline {
         IMAGE_NAME = 'nostromo'
         TEST_LOCAL_PORT = 8817
         DEPLOY_PROD = false
-       // PARAMETERS_FILE = "${JENKINS_HOME}/parameters.groovy"
+        PARAMETERS_FILE = "${JENKINS_HOME}/parameters.groovy"
     }
 
     parameters {
@@ -156,14 +156,14 @@ pipeline {
                 sh "helm init"
 
                 // Make sure parameters file exists
-             /*   script {
+                script {
                     if (! fileExists("${PARAMETERS_FILE}")) {
                         echo "ERROR: ${PARAMETERS_FILE} is missing!"
                     }
                 }
-	     */
+
                 // Load Docker registry and Helm repository configurations from file
-                // load "${JENKINS_HOME}/parameters.groovy"
+                load "${JENKINS_HOME}/parameters.groovy"
 
                 echo "DOCKER_REG is ${DOCKER_REG}"
                 echo "HELM_REPO  is ${HELM_REPO}"
