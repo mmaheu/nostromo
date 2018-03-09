@@ -31,7 +31,7 @@ def helmInstall (namespace, release) {
         sh """
             helm upgrade --install --namespace ${namespace} ${release} \
                 --set imagePullSecrets=${IMG_PULL_SECRET} \
-                --set image.repository=${DOCKER_REG}/${IMAGE_NAME},image.tag=${DOCKER_TAG} helm/nostromo
+                --set image.repository=mmaheu/${IMAGE_NAME},image.tag=${DOCKER_TAG} helm/nostromo
         """
         sh "sleep 5"
     }
