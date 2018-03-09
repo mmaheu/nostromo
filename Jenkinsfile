@@ -162,7 +162,7 @@ pipeline {
                         echo "ERROR: ${PARAMETERS_FILE} is missing!"
                     }
                 }
-
+                echo "Loading Jenkins Param File ${JENKINS_HOME}"
                 // Load Docker registry and Helm repository configurations from file
                 load "${JENKINS_HOME}/parameters.groovy"
 
