@@ -133,7 +133,7 @@ pipeline {
         string (name: 'HELM_REPO',        defaultValue: 'http://127.0.0.1:8879/charts',            description: 'Your helm repository')
         string (name: 'HELM_USR',         defaultValue: 'admin',                                   description: 'Your helm repository user')
         string (name: 'HELM_PSW',         defaultValue: 'password',                                description: 'Your helm repository password')
-
+        echo "DOCKER_REG is ${DOCKER_REG}" 
     }
 
     // In this example, all is built and run from the master
@@ -167,11 +167,11 @@ pipeline {
                 echo "Loading Jenkins Param File ${JENKINS_HOME}"
                 // Load Docker registry and Helm repository configurations from file
                 load "${JENKINS_HOME}/parameters.groovy"
-              */
+
 
                 echo "DOCKER_REG is ${DOCKER_REG}"
                 echo "HELM_REPO  is ${HELM_REPO}"
-
+              */
                 // Define a unique name for the tests container and helm release
                 script {
                     branch = GIT_BRANCH.replaceAll('/', '-').replaceAll('\\*', '-')
