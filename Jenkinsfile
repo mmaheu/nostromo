@@ -110,7 +110,7 @@ pipeline {
 
     // Some global default variables
     environment {
-        IMAGE_NAME = 'nostromo'
+        IMAGE_NAME = 'narcissus'
         TEST_LOCAL_PORT = 8817
         DEPLOY_PROD = false
         // PARAMETERS_FILE = "${JENKINS_HOME}/parameters.groovy"
@@ -125,8 +125,8 @@ pipeline {
         // In this example, the parameters are loaded from file ${JENKINS_HOME}/parameters.groovy later in the pipeline.
         // The ${JENKINS_HOME}/parameters.groovy can be a mounted secrets file in your Jenkins container.
 
-        string (name: 'DOCKER_REG',       defaultValue: 'docker.io/mmaheu',               description: 'Docker registry')
-        string (name: 'DOCKER_TAG',       defaultValue: 'dev',                                     description: 'Docker tag')
+        string (name: 'DOCKER_REG',       defaultValue: 'docker.io/mmaheu/nostromo',                        description: 'Docker registry')
+        string (name: 'DOCKER_TAG',       defaultValue: 'LV446',                                   description: 'Docker tag')
         string (name: 'DOCKER_USR',       defaultValue: 'mmaheu',                                  description: 'Your helm repository user')
         string (name: 'DOCKER_PSW',       defaultValue: 'SpadeFish5818',                           description: 'Your helm repository password')
         string (name: 'IMG_PULL_SECRET',  defaultValue: 'docker-reg-secret',                       description: 'The Kubernetes secret for the Docker registry (imagePullSecrets)')
