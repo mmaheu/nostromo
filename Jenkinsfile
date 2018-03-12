@@ -113,7 +113,7 @@ pipeline {
         IMAGE_NAME = 'nostromo'
         TEST_LOCAL_PORT = 8817
         DEPLOY_PROD = false
-        PARAMETERS_FILE = "${JENKINS_HOME}/parameters.groovy"
+        // PARAMETERS_FILE = "${JENKINS_HOME}/parameters.groovy"
     }
 
     parameters {
@@ -133,9 +133,6 @@ pipeline {
         string (name: 'HELM_REPO',        defaultValue: 'http://127.0.0.1:8879/charts',            description: 'Your helm repository')
         string (name: 'HELM_USR',         defaultValue: 'admin',                                   description: 'Your helm repository user')
         string (name: 'HELM_PSW',         defaultValue: 'password',                                description: 'Your helm repository password')
-        script {
-        echo "DOCKER_REG is: ${DOCKER_REG}"
-        }
     }
 
     // In this example, all is built and run from the master
