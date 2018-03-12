@@ -83,7 +83,7 @@ buildDockerImage () {
 
 # Push Docker images
 pushDockerImage () {
-    echo -e "\nPushing ${DOCKER_REPO}:${DOCKER_TAG}"
+    echo -e "\nPushing ${DOCKER_REG}/${DOCKER_REPO}:${DOCKER_TAG}"
 
     docker push ${DOCKER_REG}/${DOCKER_REPO}:${DOCKER_TAG} || errorExit "Pushing ${DOCKER_REPO}:${DOCKER_TAG} failed"
 }
