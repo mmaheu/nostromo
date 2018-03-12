@@ -8,7 +8,7 @@ DOCKER_REG=${DOCKER_REG:-docker.io/mmaheu}
 DOCKER_USR=${DOCKER_USR:-mmaheu}
 DOCKER_PSW=${DOCKER_PSW:-SpadeFish5818}
 
-DOCKER_REPO=${DOCKER_REPO:-nostromo}
+DOCKER_REPO=${DOCKER_REPO:-mmaheu/nostromo}
 DOCKER_TAG=${DOCKER_TAG:-narcissus}
 
 HELM_REPO=${HELM_REG:-http://127.0.0.1:8879/charts}
