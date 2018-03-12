@@ -8,7 +8,7 @@ image:
   tag: dev
   pullPolicy: Always
 service:
-  type: ClusterIP
+  type: NodePort
   externalPort: 80
   internalPort: 80
 resources:
