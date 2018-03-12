@@ -4,7 +4,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 SCRIPT_NAME=$(basename $0)
 BUILD_DIR=${SCRIPT_DIR}/build
 
-DOCKER_REG=${DOCKER_REG:-docker.io/mmaheu}
+DOCKER_REG=${DOCKER_REG:-docker.io}
 DOCKER_USR=${DOCKER_USR:-mmaheu}
 DOCKER_PSW=${DOCKER_PSW:-SpadeFish5818}
 
