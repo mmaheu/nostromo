@@ -129,6 +129,8 @@ pipeline {
         string (name: 'DOCKER_PSW',       defaultValue: 'SpadeFish5818',                           description: 'Your Docker repository password')
         string (name: 'IMG_PULL_SECRET',  defaultValue: 'bW1haGV1OlNwYWRlRmlzaDU4MTg=',            description: 'The Kubernetes secret for the Docker registry (imagePullSecrets)')
         string (name: 'HELM_REPO',        defaultValue: 'http://127.0.0.1:8879/charts',            description: 'Your helm repository')
+        string (name: 'HELM_USR'),        defaultValue: 'admin'                                    description: 'helm user')
+        string (name: 'HELM_PSW'),        defaultValue: 'password'                                 description: 'helm pw')
     }
 
     // In this example, all is built and run from the master
