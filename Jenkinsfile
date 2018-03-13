@@ -155,7 +155,7 @@ pipeline {
                 script {
                     branch = GIT_BRANCH.replaceAll('/', '-').replaceAll('\\*', '-')
                   //  ID = "${IMAGE_NAME}-${DOCKER_TAG}-${branch}"
-                      ID = "${DOCKER_USR}/${DOCKER_IMAGE}"
+                      ID = "${DOCKER_USR}/nostromo"
                     echo "Global ID set to ${ID}"
                 }
             }
