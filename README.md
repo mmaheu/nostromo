@@ -2,16 +2,14 @@
 This project is an example of a complete CI/CD pipeline of a simple static web application from sources to deployed Kubernetes pods.
 Adding some notes here
 ## Artifactory as Docker registry
-This project uses [Artifactory](https://jfrog.com/integration/artifactory-docker-registry/) as its Docker registry.
-You can [get a free trial](https://www.jfrog.com/artifactory/free-trial/) and try it out!
+This project uses [Docker Cloud](https://cloud.docker.com) as its Docker registry.
 
-Follow the documentation for setting up your Docker registry. 
+Follow the documentation for setting up your Docker registry.
 
 ## Artifactory as Helm repository
-This project uses [Artifactory](https://jfrog.com/integration/helm/) as its Helm repository.
-You can [get a free trial](https://www.jfrog.com/artifactory/free-trial/) and try it out! 
+This project uses [Localhost](http://localhost:8338) as its Helm repository.
 
-Follow the documentation for setting up your Helm repository. 
+Follow the documentation for setting up your Helm repository.
 
 ## Jenkins
 Setup a [Jenkins](https://jenkins.io/) running with
@@ -19,7 +17,7 @@ Setup a [Jenkins](https://jenkins.io/) running with
 - [Kubectl](https://kubernetes.io/). Kubernetes CLI that will link Jenkins with the Kubernetes cluster
 - [Helm](https://helm.sh/). Kubernetes package manager to simplify deployment of your Docker containers to Kubernetes
 
-There is a [GitHub example](https://github.com/eldada/jenkins-in-kubernetes) of such a Docker image, to be used in Kubernetes.
+There is a [GitHub example](https://github.com/mmaheu/jenkins-k8s) of such a Docker image, to be used in Kubernetes.
 
 ### Jenkins in Kubernetes
 Jenkins running in Kubernetes can be found in this [GitHub example](https://github.com/eldada/jenkins-in-kubernetes).
@@ -41,4 +39,3 @@ $ ./build.sh --help
 ```
 
 You can also pack and push the Docker image and Helm chart.
-
