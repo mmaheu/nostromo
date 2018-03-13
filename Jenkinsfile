@@ -154,8 +154,7 @@ pipeline {
                 // Define a unique name for the tests container and helm release
                 script {
                     branch = GIT_BRANCH.replaceAll('/', '-').replaceAll('\\*', '-')
-                  //  ID = "${IMAGE_NAME}-${DOCKER_TAG}-${branch}"
-                      ID = "${DOCKER_USR}/nostromo"
+                    ID = "${IMAGE_NAME}-${DOCKER_TAG}-${branch}"
                     echo "Global ID set to ${ID}"
                 }
             }
@@ -170,7 +169,9 @@ pipeline {
                 echo "Running tests"
 
                 // Kill container in case there is a leftover
-                sh "[ -z \"\$(docker ps -a | grep ${ID} 2>/dev/null)\" ] || docker rm -f ${ID}"
+                echo "helm remove the old release and docker container"
+                sh "[ -z \"\$(helm delete nostromo-narcissus-master-production --purge)\"]"
+                //sh "[ -z \"\$(docker ps -a | grep ${ID} 2>/dev/null)\" ] || docker rm -f ${ID}"
 
                 echo "Starting ${IMAGE_NAME} container"
                 sh "docker run --detach --name ${ID} --rm --publish ${TEST_LOCAL_PORT}:80 ${DOCKER_REG}/${IMAGE_NAME}:${DOCKER_TAG}"
