@@ -184,7 +184,7 @@ pipeline {
             }
         }
 
-        // Run the 3 tests on the currently running ACME Docker container
+        // Run the 3 tests on the currently running Nostromo Docker container
         stage('Local tests') {
             parallel {
                 stage('Curl http_code') {
