@@ -113,13 +113,11 @@ pipeline {
         IMAGE_NAME = 'nostromo'
         TEST_LOCAL_PORT = 8817
         DEPLOY_PROD = false
-        // PARAMETERS_FILE = "${JENKINS_HOME}/parameters.groovy"
     }
 
     parameters {
         string (name: 'GIT_BRANCH',           defaultValue: 'master',  description: 'Git branch to build')
         booleanParam (name: 'DEPLOY_TO_PROD', defaultValue: false,     description: 'If build and tests are good, proceed and deploy to production without manual approval')
-
 
         // The commented out parameters are for optionally using them in the pipeline.
         // In this example, the parameters are loaded from file ${JENKINS_HOME}/parameters.groovy later in the pipeline.
@@ -155,27 +153,10 @@ pipeline {
                 // Init helm client
                 sh "helm init"
 
-                // Make sure parameters file exists
-                //Using Jenkins params instead.
-              /*
-                script {
-                    if (! fileExists("${PARAMETERS_FILE}")) {
-                        echo "ERROR: ${PARAMETERS_FILE} is missing!"
-                    }
-                }
-                echo "Loading Jenkins Param File ${JENKINS_HOME}"
-                // Load Docker registry and Helm repository configurations from file
-                load "${JENKINS_HOME}/parameters.groovy"
-
-
-                echo "DOCKER_REG is ${DOCKER_REG}"
-                echo "HELM_REPO  is ${HELM_REPO}"
-              */
                 // Define a unique name for the tests container and helm release
                 script {
                     branch = GIT_BRANCH.replaceAll('/', '-').replaceAll('\\*', '-')
                     ID = "${IMAGE_NAME}-${DOCKER_TAG}-${branch}"
-
                     echo "Global ID set to ${ID}"
                 }
             }
@@ -190,7 +171,9 @@ pipeline {
                 echo "Running tests"
 
                 // Kill container in case there is a leftover
-                sh "[ -z \"\$(docker ps -a | grep ${ID} 2>/dev/null)\" ] || docker rm -f ${ID}"
+                echo "helm remove the old release and docker container"
+                // sh "[ -z \"\$(helm delete nostromo-narcissus-master-production --purge)\"]"
+                // sh "[ -z \"\$(docker ps -a | grep ${ID} 2>/dev/null)\" ] || docker rm -f ${ID}"
 
                 echo "Starting ${IMAGE_NAME} container"
                 sh "docker run --detach --name ${ID} --rm --publish ${TEST_LOCAL_PORT}:80 ${DOCKER_REG}/${IMAGE_NAME}:${DOCKER_TAG}"
