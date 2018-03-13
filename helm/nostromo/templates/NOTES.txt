@@ -1,1 +1,1 @@
-You have successfully installed ACME!
+You have successfully installed Nostromo!
