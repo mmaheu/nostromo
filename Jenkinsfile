@@ -154,7 +154,7 @@ pipeline {
                 // Define a unique name for the tests container and helm release
                 script {
                     branch = GIT_BRANCH.replaceAll('/', '-').replaceAll('\\*', '-')
-                    ID = "${IMAGE_NAME}-${DOCKER_TAG}-${branch}"
+                    ID = "${IMAGE_NAME}-${DOCKER_TAG}"
 
                     echo "Global ID set to ${ID}"
                 }
