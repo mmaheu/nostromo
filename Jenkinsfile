@@ -344,23 +344,21 @@ pipeline {
                 anyOf {
                     expression { DEPLOY_PROD == true }
                     environment name: 'DEPLOY_TO_PROD', value: 'true'
-                    echo "Deleting production release and container with Helm"
-                    helmDelete ("production", "${ID}")
                 }
             }
 
             steps {
                 script {
+                namespace = 'production'
+                helmDelete (namespace, "${ID}")
+                DEPLOY_PROD = true
 
-                    DEPLOY_PROD = true
-                    namespace = 'production'
+                echo "Deploying application ${IMAGE_NAME}:${DOCKER_TAG} to ${namespace} namespace"
+                createNamespace (namespace)
 
-                    echo "Deploying application ${IMAGE_NAME}:${DOCKER_TAG} to ${namespace} namespace"
-                    createNamespace (namespace)
-
-                    // Deploy with helm
-                    echo "Deploying"
-                    helmInstall (namespace, "${ID}")
+                // Deploy with helm
+                echo "Deploying"
+                helmInstall (namespace, "${ID}")
                 }
             }
         }
