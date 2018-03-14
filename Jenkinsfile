@@ -345,7 +345,7 @@ pipeline {
                     expression { DEPLOY_PROD == true }
                     environment name: 'DEPLOY_TO_PROD', value: 'true'
                     echo "Deleting production release and container with Helm"
-                  //  helmDelete ("production", "${ID}")
+                    helmDelete ("production", "${ID}")
                 }
             }
 
