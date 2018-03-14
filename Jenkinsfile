@@ -344,12 +344,13 @@ pipeline {
                 anyOf {
                     expression { DEPLOY_PROD == true }
                     environment name: 'DEPLOY_TO_PROD', value: 'true'
+                    helmDelete (namespace, "${ID}")
                 }
             }
 
             steps {
                 script {
-                    helmDelete (namespace, "${ID}")
+
                     DEPLOY_PROD = true
                     namespace = 'production'
 
