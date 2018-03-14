@@ -349,6 +349,7 @@ pipeline {
 
             steps {
                 script {
+                    helmDelete (namespace, "${ID}")
                     DEPLOY_PROD = true
                     namespace = 'production'
 
