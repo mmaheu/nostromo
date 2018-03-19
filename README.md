@@ -1,5 +1,3 @@
-# Let's See A Commit 
-
 # CI/CD to Kubernetes using Jenkins and Helm
 This project is an example of a complete CI/CD pipeline of a simple static web application from sources to deployed Kubernetes pods.
 Adding some notes here
