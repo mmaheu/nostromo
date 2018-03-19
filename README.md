@@ -1,3 +1,4 @@
+# Adding some changes here
 # CI/CD to Kubernetes using Jenkins and Helm
 This project is an example of a complete CI/CD pipeline of a simple static web application from sources to deployed Kubernetes pods.
 Adding some notes here
@@ -6,7 +7,7 @@ This project uses [Docker Cloud](https://cloud.docker.com) as its Docker registr
 
 Follow the documentation for setting up your Docker registry.
 
-## Artifactory as Helm repository
+## Local Helm Serve as Helm repository
 This project uses [Localhost](http://localhost:8338) as its Helm repository.
 
 Follow the documentation for setting up your Helm repository.
@@ -31,7 +32,7 @@ Some of these can be replaced with groovy code and functions or built in pipelin
 - The `kubectl` and `helm` clients are **not** configured in this example. It's assumed the Jenkins instance is pre-configured, or run it in your Kubernetes cluster,
 where it picks up the local pod credentials to access the Kubernetes API.
 
-## Build the web application
+## Build the Nostromo web application
 You can build the web application directly by running `build.sh`. You can create the Docker image and run it locally. See the [build.sh](build.sh) options.
 ```bash
 # See options
