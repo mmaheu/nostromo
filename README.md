@@ -1,6 +1,5 @@
 # CI/CD to Kubernetes using Jenkins and Helm
 This project is an example of a complete CI/CD pipeline of a simple static web application from sources to deployed Kubernetes pods.
-Adding some notes here
 ## Docker.io as Docker registry
 This project uses [Docker Cloud](https://cloud.docker.com) as its Docker registry.
 
