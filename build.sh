@@ -13,7 +13,7 @@ DOCKER_TAG=${DOCKER_TAG:-narcissus}
 
 HELM_REPO=${HELM_REG:-http://127.0.0.1:8879/charts}
 HELM_USR=${HELM_USR:-admin}
-HELM_PSW=${HELM_PSW:-password}
+HELM_PSW=${HELM_PSW:-secret}
 
 errorExit () {
     echo -e "\nERROR: $1"; echo
