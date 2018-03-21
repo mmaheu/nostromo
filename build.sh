@@ -11,9 +11,9 @@ DOCKER_PSW=${DOCKER_PSW:-SpadeFish5818}
 DOCKER_REPO=${DOCKER_REPO:-nostromo}
 DOCKER_TAG=${DOCKER_TAG:-narcissus}
 
-HELM_REPO=${HELM_REG:-http://127.0.0.1:8879/charts}
+HELM_REPO=${HELM_REG:-http://nexus.go2group.tech/repository/charts/}
 HELM_USR=${HELM_USR:-admin}
-HELM_PSW=${HELM_PSW:-password}
+HELM_PSW=${HELM_PSW:-Cubalibre!}
 
 errorExit () {
     echo -e "\nERROR: $1"; echo
