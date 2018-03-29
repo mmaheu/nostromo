@@ -19,7 +19,7 @@ Setup a [Jenkins](https://jenkins.io/) running with
 There is a [GitHub example](https://github.com/mmaheu/jenkins-k8s) of such a Docker image, to be used in Kubernetes.
 
 ### Jenkins in Kubernetes
-Jenkins running in Kubernetes can be found in this [GitHub example](https://github.com/eldada/jenkins-in-kubernetes).
+Jenkins running in Kubernetes can be found in this [GitHub example](https://github.com/mmaheu/jenkins-k8s).
 - This project is used to build a Jenkins master that has the required tools (`docker`, `kubectl` and `helm`) already installed
 - You can deploy this Jenkins to Kubernetes using the helm chart in the same repository
 - Notice that this is an example, and should not be used for production
