@@ -1,5 +1,5 @@
 /*
-    This is an example pipeline that implement full CI/CD for a simple static web site packed in a Docker image.
+    This is an example pipeline that implements full CI/CD for a simple static web site packed in a Docker image.
 
     The pipeline is made up of 6 main steps
     1. Git clone and setup
