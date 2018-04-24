@@ -51,14 +51,14 @@ dockerLogin () {
     echo -e "\nDocker login"
 
     if [ ! -z "${DOCKER_REG}" ]; then
-        # Make sure credentials are set
-        if [ -z "${DOCKER_USR}" ] || [ -z "${DOCKER_PSW}" ]; then
-            errorExit "Docker credentials not set (DOCKER_USR and DOCKER_PSW)"
-        fi
+	# Make sure credentials are set
+	if [ -z "${DOCKER_USR}" ] || [ -z "${DOCKER_PSW}" ]; then
+	    errorExit "Docker credentials not set (DOCKER_USR and DOCKER_PSW)"
+	fi
 
-        docker login ${DOCKER_REG} -u ${DOCKER_USR} -p ${DOCKER_PSW} || errorExit "Docker login to ${DOCKER_REG} failed"
+	docker login ${DOCKER_REG} -u ${DOCKER_USR} -p ${DOCKER_PSW} || errorExit "Docker login to ${DOCKER_REG} failed"
     else
-        echo "Docker registry not set. Skipping"
+	echo "Docker registry not set. Skipping"
     fi
 }
 
@@ -82,6 +82,7 @@ buildDockerImage () {
 }
 
 # Push Docker images
+
 pushDockerImage () {
     echo -e "\nPushing ${DOCKER_REG}/${DOCKER_REPO}:${DOCKER_TAG}"
 
@@ -114,51 +115,51 @@ pushHelmChart() {
 # Process command line options. See usage above for supported options
 processOptions () {
     if [ $# -eq 0 ]; then
-        usage
+	usage
     fi
 
     while [[ $# > 0 ]]; do
-        case "$1" in
-            --build)
-                BUILD="true"; shift
-            ;;
-            --push)
-                PUSH="true"; shift
-            ;;
-            --pack_helm)
-                PACK_HELM="true"; shift
-            ;;
-            --push_helm)
-                PUSH_HELM="true"; shift
-            ;;
-            --registry)
-                DOCKER_REG=${2}; shift 2
-            ;;
-            --docker_usr)
-                DOCKER_USR=${2}; shift 2
-            ;;
-            --docker_psw)
-                DOCKER_PSW=${2}; shift 2
-            ;;
-            --tag)
-                DOCKER_TAG=${2}; shift 2
-            ;;
-            --helm_repo)
-                HELM_REPO=${2}; shift 2
-            ;;
-            --helm_usr)
-                HELM_USR=${2}; shift 2
-            ;;
-            --helm_psw)
-                HELM_PSW=${2}; shift 2
-            ;;
-            -h | --help)
-                usage
-            ;;
-            *)
-                usage
-            ;;
-        esac
+	case "$1" in
+	    --build)
+		BUILD="true"; shift
+	    ;;
+	    --push)
+		PUSH="true"; shift
+	    ;;
+	    --pack_helm)
+		PACK_HELM="true"; shift
+	    ;;
+	    --push_helm)
+		PUSH_HELM="true"; shift
+	    ;;
+	    --registry)
+		DOCKER_REG=${2}; shift 2
+	    ;;
+	    --docker_usr)
+		DOCKER_USR=${2}; shift 2
+	    ;;
+	    --docker_psw)
+		DOCKER_PSW=${2}; shift 2
+	    ;;
+	    --tag)
+		DOCKER_TAG=${2}; shift 2
+	    ;;
+	    --helm_repo)
+		HELM_REPO=${2}; shift 2
+	    ;;
+	    --helm_usr)
+		HELM_USR=${2}; shift 2
+	    ;;
+	    --helm_psw)
+		HELM_PSW=${2}; shift 2
+	    ;;
+	    -h | --help)
+		usage
+	    ;;
+	    *)
+		usage
+	    ;;
+	esac
     done
 }
 
@@ -177,20 +178,20 @@ main () {
 
     # Build and push docker images if needed
     if [ "${BUILD}" == "true" ]; then
-        buildDockerImage
+	buildDockerImage
     fi
     if [ "${PUSH}" == "true" ]; then
-        # Attempt docker login
-        dockerLogin
-        pushDockerImage
+	# Attempt docker login
+	dockerLogin
+	pushDockerImage
     fi
 
     # Pack and push helm chart if needed
     if [ "${PACK_HELM}" == "true" ]; then
-        packHelmChart
+	packHelmChart
     fi
     if [ "${PUSH_HELM}" == "true" ]; then
-        pushHelmChart
+	pushHelmChart
     fi
 }
 
