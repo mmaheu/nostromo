@@ -3,6 +3,8 @@ This project is an example of a complete CI/CD pipeline of a simple static web a
 ## Docker.io as Docker registry
 This project uses [Docker Cloud](https://cloud.docker.com) as its Docker registry.
 
+## Verify Narcisuss Branch for Dallas
+
 Follow the documentation for setting up your Docker registry.
 
 ## Local Helm Serve as Helm repository
