@@ -6,7 +6,7 @@ BUILD_DIR=${SCRIPT_DIR}/build
 
 DOCKER_REG=${DOCKER_REG:-docker.io/mmaheu}
 DOCKER_USR=${DOCKER_USR:-mmaheu}
-DOCKER_PSW=${DOCKER_PSW:-YourPassword}
+DOCKER_PSW=${DOCKER_PSW:-FireBox69}
 
 DOCKER_REPO=${DOCKER_REPO:-nostromo}
 DOCKER_TAG=${DOCKER_TAG:-narcissus}
